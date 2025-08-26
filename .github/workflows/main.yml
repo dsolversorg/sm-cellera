@@ -1,0 +1,50 @@
+name: Build & Sync S3
+
+on:
+  push:
+    branches: ["main"]
+  #workflow_dispatch:
+
+jobs:
+  build:
+    permissions:
+      id-token: write
+      contents: read
+
+    name: Deploy Front
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Setup Node 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the app
+        run: npm run build
+        env:
+          REACT_APP_API_KEY: ${{ secrets.API_KEY_CELLERA }}
+          REACT_APP_TOKEN_URL: ${{ secrets.API_KEY_CELLERA }}
+          REACT_APP_TWILIO_ACCOUNT_SID: ${{ secrets.REACT_APP_TWILIO_ACCOUNT_SID }}
+          REACT_APP_TWILIO_AUTH_TOKEN: ${{ secrets.REACT_APP_TWILIO_AUTH_TOKEN }}
+          REACT_APP_TWIMLBIN_ACCOUNT_SID: ${{ secrets.REACT_APP_TWIMLBIN_ACCOUNT_SID }}
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.PRD_AWS_ROLE_TO_ASSUME }}
+          role-session-name: githubaction
+          aws-region: ${{ secrets.PRD_AWS_DEFAULT_REGION }}
+
+      - name: Sync to s3 bucket
+        env:
+          AWS_S3_BUCKET: sites.pessoadigital.digitalsolvers.com
+          CUSTOMER: cellera
+        run: |
+          cp build/index.html build/$CUSTOMER
+          aws s3 sync build/ s3://$AWS_S3_BUCKET/cellera
