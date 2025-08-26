@@ -307,7 +307,7 @@ export default styled(DPChat)`
     }
   }
   .icon{
-    background-color: #09c8c8;
+    background-color: #fdd900;
     border-radius: 40px;
     padding: 1rem;
     height: 70px;
