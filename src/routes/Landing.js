@@ -48,7 +48,7 @@ function Landing({ className }) {
             <div className="col-12 col-lg-6">
               <div className="row" style={{ marginBottom: '9px' }}>
                 <div>
-                  <h1 className="fw-bol">Sou a Joana uma Pessoa Digital Hiper-realista, criada pela cellera, com o propósito de esclarecer dúvidas sobre a vacina da Dengue Qdenga.</h1>
+                  <h1 className="fw-bol">Olá, eu sou a Éra, um agente virtual da Cellera Farma, com o propósito de esclarecer dúvidas.</h1>
                   {/* <h2 className="fw-bol">
                     Segue abaixo algumas frases de navegação:
                   </h2>
@@ -68,10 +68,7 @@ function Landing({ className }) {
               <div className="row">
                 <div>
                   <h4 className="fw-light" style={{ marginBottom: '31px' }}>
-                    Sou especialista em
-                    <b> Dengue</b>
-                    ,
-                    faça-me uma pergunta e farei o meu melhor para respondê-la.
+                    Faça-me uma pergunta e farei o meu melhor para respondê-la.
                   </h4>
                 </div>
               </div>
@@ -95,7 +92,7 @@ function Landing({ className }) {
                     disabled={!connected}
                     onClick={redirectToVideoOnConnect}
                   >
-                    Conversar com a Joana
+                    Conversar com a Éra
                   </button>
                 )}
               </div>
