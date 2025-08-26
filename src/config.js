@@ -4,7 +4,7 @@ import placeholder from './img/placeholder-headshot.png';
 // header will not take up vertical height when transparent, so you need to be mindful of overlap
 export const transparentHeader = true;
 export const headerHeight = '4.2rem';
-export const logo = 'https://conhecadengue.com.br/themes/custom/conheca_dengue/img/header-logo.png';
+export const logo = 'https://cellerafarma.com.br/wp-content/uploads/2024/02/cellera-farma-logo-footer.png';
 export const logoAltText = 'cellera Icon';
 export const logoLink = '/';
 

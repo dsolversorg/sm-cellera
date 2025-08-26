@@ -54,7 +54,7 @@ function Header({
             <div>
               {/* left align */}
               <Link to={logoLink}>
-                <img src="https://conhecadengue.com.br/themes/custom/conheca_dengue/img/header-logo.png" className="logo position-relative" alt={logoAltText} />
+                <img src="https://cellerafarma.com.br/wp-content/uploads/2024/02/cellera-farma-logo-footer.png" className="logo position-relative" alt={logoAltText} />
               </Link>
             </div>
             <div>
